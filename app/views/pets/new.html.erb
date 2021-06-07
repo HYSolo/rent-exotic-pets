@@ -1,2 +1,13 @@
-<h1>Pets#new</h1>
-<p>Find me in app/views/pets/new.html.erb</p>
+<h1>Add a new Pet!</h1>
+
+<div>
+  <%= simple_form_for @pet do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :type %>
+    <%= f.input :danger_meter %>
+    <%= f.input :price %>
+    <%= f.input :location %>
+    <%= f.submit "Submit", class: "btn btn-primary"%>
+  <% end %>
+</div>
