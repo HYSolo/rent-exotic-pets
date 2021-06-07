@@ -1,9 +1,14 @@
-<h1>Your pets</h1>
-
-<div>
-  <ul>
-    <% @pets.each do |pet| %>
-    <li><%= link_to pet.name, pet_path(pet) %></li>
-    <% end %>
-  </ul>
+<div class="container">
+  <h1>Pets</h1>
+  <% @pets.each do |pet| %>
+    <div class="card pet-card p-3">
+      <p class="pet-name"><%= pet.name %></p>
+      <div class="d-flex justify-content-around">
+        <p class="pet-species"><%= pet.species %></p>
+        <p class="pet-danger">Danger Meter: <%= pet.danger_meter %>/5</p>
+        <p class="pet-price">$<%= pet.price.round(2) %>/week</p>
+      </div>
+      <p class="pet-description"><%= pet.description %></p>
+    </div>
+  <% end %>
 </div>
