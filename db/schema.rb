@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_052953) do
+ActiveRecord::Schema.define(version: 2021_06_07_063314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_052953) do
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "type"
+    t.string "species"
     t.integer "danger_meter"
     t.float "price"
     t.string "location"
