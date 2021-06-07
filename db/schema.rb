@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_06_07_052953) do
+=======
+ActiveRecord::Schema.define(version: 2021_06_07_063314) do
+>>>>>>> 2f4e973cd1c65bc2433c07e1cad8cf8f98d6a156
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +22,11 @@ ActiveRecord::Schema.define(version: 2021_06_07_052953) do
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "description"
+<<<<<<< HEAD
     t.string "type"
+=======
+    t.string "species"
+>>>>>>> 2f4e973cd1c65bc2433c07e1cad8cf8f98d6a156
     t.integer "danger_meter"
     t.float "price"
     t.string "location"
