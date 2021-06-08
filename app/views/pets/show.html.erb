@@ -1,2 +1,16 @@
-<h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p>
+<div class="title mb-5">
+  <h1 class="d-inline"><%= @pet.name %></h1> - <h4 class="d-inline">$<%= @pet.price %>/week</h4>
+</div>
+
+<div class="details">
+  <h4>Details</h4>
+  <ul>
+    <li><strong>Species</strong>: <%= @pet.species %></li>
+    <li><strong>Location</strong>: <%= @pet.location %></li>
+    <li><strong>Danger Meter</strong>: <%= @pet.danger_meter %>/5</li>
+    <li><strong>Owner</strong> : <%= @pet.user.email %></li>
+  </ul>
+
+  <h4>Description</h4>
+  <p><%= @pet.description %></p>
+</div>
