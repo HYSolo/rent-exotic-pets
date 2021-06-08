@@ -5,3 +5,13 @@
 <%# where is this form going to be directed to? %>
 <%# form will be directed to a 'create' action (it will be a nested route) %>
 <%# the form will be nested, pet_id to create booking %>
+
+<div>
+  <%= simple_form_for @booking do |f| %>
+    <%# <%= f.input :pet_id %> %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Submit", class: "btn btn-primary"%>
+  <% end %>
+</div>
+
