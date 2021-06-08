@@ -4,6 +4,7 @@
       <p class="pet-species"><%= pet.species %></p>
       <p class="pet-danger">Danger Meter: <%= pet.danger_meter %>/5</p>
       <p class="pet-price">$<%= pet.price.round(2) %>/week</p>
+      <%= link_to "Rrrrent Me", new_pet_booking_path(pet), class: "booking-link"  %>
     </div>
     <p class="pet-description"><%= pet.description %></p>
   </div>
