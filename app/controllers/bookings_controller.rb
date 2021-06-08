@@ -20,7 +20,15 @@ class BookingsController < ApplicationController
     end
   end
 
-  private
+  def index
+    @bookings = current_user.bookings
+  end
+  
+  def show
+    @booking = Booking.find(params[:id])
+  end
+  
+    private
 
   def set_pet
     @pet = Pet.find(params[:pet_id])
