@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :species %>
-    <%= f.input :danger_meter %>
+    <%= f.input :danger_meter, collection: 0..5 %>
     <%= f.input :price %>
     <%= f.input :location %>
     <%= f.submit "Submit", class: "btn btn-primary"%>
