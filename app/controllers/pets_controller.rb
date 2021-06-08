@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @pets = Pet.all
   end
@@ -14,7 +16,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pets_param)
     @pet.user = current_user
     if @pet.save
-      redirect_to pet_path(@pet.id)
+      redirect_to pet_path(@pet)
     else
       render :new
     end
@@ -30,4 +32,3 @@ class PetsController < ApplicationController
     params.require(:pet).permit(:name, :description, :species, :danger_meter, :price, :location)
   end
 end
-                          
