@@ -1,10 +1,23 @@
 class BookingsController < ApplicationController
+  before_action :set_pet, only: %i[new create]
+
   def new
     @booking = Booking.new
+    @pet = Pet.find(params[:pet_id])
   end
 
   def create
-    @booking = Booking.new(booking_param)
+    @booking = Booking.new(booking_params)
+    @booking.user_id = current_user.id
+    @booking.pet = @pet
+    @rental_duration_days = @booking.end_date - @booking.start_date
+    @booking.total_price = @booking.pet.price * @rental_duration_days
+
+    if @booking.save
+      redirect_to pet_path(@booking.pet_id)
+    else
+      render :new
+    end
   end
 
   def index
@@ -17,7 +30,11 @@ class BookingsController < ApplicationController
   
     private
 
-  def booking_param
-    params.require(:booking).permit(:start_time, :end_date, :total_price)
+  def set_pet
+    @pet = Pet.find(params[:pet_id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :total_price, :pet_id)
   end
 end

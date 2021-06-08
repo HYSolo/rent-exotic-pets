@@ -1,5 +1,6 @@
 <div class="title mb-5">
   <h1 class="d-inline"><%= @pet.name %></h1> - <h4 class="d-inline">$<%= @pet.price %>/week</h4>
+  <%= link_to "Rrrrent Me", new_pet_booking_path(@pet), class: "booking-link d-block"  %>
 </div>
 
 <div class="details">
