@@ -1,0 +1,9 @@
+<div class="card pet-card p-3">
+    <%= link_to pet.name, pet_path(pet), class: "pet-name"  %>
+    <div class="d-flex justify-content-around">
+      <p class="pet-species"><%= pet.species %></p>
+      <p class="pet-danger">Danger Meter: <%= pet.danger_meter %>/5</p>
+      <p class="pet-price">$<%= pet.price.round(2) %>/week</p>
+    </div>
+    <p class="pet-description"><%= pet.description %></p>
+  </div>
