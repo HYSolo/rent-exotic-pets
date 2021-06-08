@@ -1,7 +1,7 @@
 <h1>Pets</h1>
 <% @pets.each do |pet| %>
   <div class="card pet-card p-3">
-    <p class="pet-name"><%= pet.name %></p>
+    <%= link_to pet.name, pet_path(pet), class: "pet-name"  %>
     <div class="d-flex justify-content-around">
       <p class="pet-species"><%= pet.species %></p>
       <p class="pet-danger">Danger Meter: <%= pet.danger_meter %>/5</p>
