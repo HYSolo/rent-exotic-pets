@@ -12,9 +12,9 @@ class BookingsController < ApplicationController
     @booking.pet = @pet
     @rental_duration_days = @booking.end_date - @booking.start_date
     @booking.total_price = @booking.pet.price * @rental_duration_days
-
+    # raise
     if @booking.save
-      redirect_to pet_path(@booking.pet_id)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
@@ -23,11 +23,11 @@ class BookingsController < ApplicationController
   def index
     @bookings = current_user.bookings
   end
-  
+
   def show
     @booking = Booking.find(params[:id])
   end
-  
+
     private
 
   def set_pet
