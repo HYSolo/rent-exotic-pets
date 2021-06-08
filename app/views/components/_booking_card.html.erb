@@ -1,0 +1,10 @@
+  <div class="card-product mb-3">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= link_to booking.pet.name, booking_path(booking) %> (<%= booking.pet.species %>)</h2>
+      <p class="dates">
+        <%= booking.start_date.day %> <%= Date::ABBR_MONTHNAMES[booking.start_date.month] %>, <%= booking.start_date.year %>
+          - <%= booking.end_date.day %> <%= Date::ABBR_MONTHNAMES[booking.end_date.month] %>, <%= booking.end_date.year %>
+      </p>
+    </div>
+  </div>

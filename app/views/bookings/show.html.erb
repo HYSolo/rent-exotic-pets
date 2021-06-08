@@ -1,0 +1,5 @@
+<% if @booking.user == current_user %>
+  <%= render 'components/booking_details', booking: @booking %>
+<% else %>
+  <h1>YOU CAN'T SEE THIS!</h1>
+<% end %>

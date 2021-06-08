@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :pets do
     resources :bookings, only: [:new]
   end
+
+  get '/bookings', to: 'bookings#index'
+  get '/bookings/:id', to: 'bookings#show', as: 'booking'
     
   devise_for :users
   root to: 'pages#home'
