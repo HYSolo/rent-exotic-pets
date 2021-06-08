@@ -1,5 +1,4 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>New Booking</h1>
 
 <%# create a form to get the start/end date of the booking %>
 <%# where is this form going to be directed to? %>
@@ -7,8 +6,7 @@
 <%# the form will be nested, pet_id to create booking %>
 
 <div>
-  <%= simple_form_for @booking do |f| %>
-    <%# <%= f.input :pet_id %> %>
+  <%= simple_form_for [@pet, @booking] do |f| %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
     <%= f.submit "Submit", class: "btn btn-primary"%>
