@@ -8,8 +8,11 @@
 <div class="w-25">
   <%= simple_form_for [@pet, @booking] do |f| %>
     <%= f.input :start_date, as: :date, html5: true %>
-    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true, input_html:{ data: { price: @pet.price }} %>
     <%= f.submit "Submit", class: "btn btn-primary"%>
   <% end %>
+
+  <%# use moment.js to calculate dates %>
+  <%# store price as a hidden input and pass in params %>
 </div>
 

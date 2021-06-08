@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
     @booking.pet = @pet
     @rental_duration_days = @booking.end_date - @booking.start_date
     @booking.total_price = @booking.pet.price * @rental_duration_days
-    # raise
     if @booking.save
       redirect_to booking_path(@booking)
     else
