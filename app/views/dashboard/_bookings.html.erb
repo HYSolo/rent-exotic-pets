@@ -1,9 +1,7 @@
-
-
-<% @bookings.each do |booking| %>
-  <% @this_pet = @pets.detect { |pet| pet.id == booking[0].pet_id } %>
-  <h2><%= @this_pet.name %></h2>
-  <% booking.each do |this_booking| %>
-    <%= render 'components/booking_card', booking: this_booking %>
+<% @booked_pets.each do |pet| %>
+  <h2><%= pet.name %></h2>
+  <% @booked_pets_sorted = pet.bookings.sort_by {|booking| booking.start_date} %>
+  <% @booked_pets_sorted.each do |booking| %>
+    <%= render 'components/booking_card', booking: booking %>
   <% end %>
 <% end %>
