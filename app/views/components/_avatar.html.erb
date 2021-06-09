@@ -1,5 +1,5 @@
 <% if user.photo.attached? %>
-  <%= cl_image_tag user.photo.key, crop: :fill, class: "avatar" %>
+  <%= cl_image_tag user.photo.key, crop: :fill, class: "avatar card-trip-user avatar-bordered" %>
 <% else %>
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Joe_Exotic_%28Santa_Rose_County_Jail%29.png/330px-Joe_Exotic_%28Santa_Rose_County_Jail%29.png" class="card-trip-user avatar-bordered" />
 <% end %>
