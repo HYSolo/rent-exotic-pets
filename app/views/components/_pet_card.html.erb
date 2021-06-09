@@ -1,10 +1,18 @@
-<div class="card pet-card p-3">
-    <%= link_to pet.name, pet_path(pet), class: "pet-name"  %>
-    <div class="d-flex justify-content-around">
-      <p class="pet-species"><%= pet.species %></p>
-      <p class="pet-danger">Danger Meter: <%= pet.danger_meter %>/5</p>
-      <p class="pet-price">$<%= pet.price.round(2) %>/week</p>
-      <%= link_to "Rrrrent Me", new_pet_booking_path(pet), class: "booking-link"  %>
+<div class="card-trip">
+  <% if pet.photos.attached? %>
+    <img src="<%= cl_image_path pet.photos.first.key, height: 300, crop: :fill %>" />
+  <% else %>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <% end %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= link_to "#{pet.name} (#{pet.species})", pet_path(pet) %></h2>
+      <p><%= pet.description %></p>
     </div>
-    <p class="pet-description"><%= pet.description %></p>
+    <div>
+      <h2 class="card-trip-pricing"><%= number_to_currency(pet.price) %></h2>
+      <h2 class="card-trip-danger">Danger: <%= pet.danger_meter %>/5</h2>
+    </div>
+    <%= render "components/avatar", user: pet.user %>
   </div>
+</div>
