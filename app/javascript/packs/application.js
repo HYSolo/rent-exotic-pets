@@ -27,8 +27,17 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+const initBookingDatePicker = () => {
+  const dateSection = document.getElementById('new_booking')
+  if (dateSection) {
+    dateSection.querySelector('#booking_end_date').addEventListener('blur', (e) => {
+      console.log(e.currentTarget.dataset.price)
+    })
+  }
+}
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initBookingDatePicker();
 });
