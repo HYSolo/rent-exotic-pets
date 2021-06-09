@@ -1,4 +1,8 @@
 <h1>Your Booking</h1>
+
+<h2>Price</h2>
+<p>$<%= booking.total_price %></p>
+
 <h2>Dates</h2>
   <p>Pick up: <%= booking.start_date.day %> <%= Date::MONTHNAMES[booking.start_date.month] %>, <%= booking.start_date.year %></p>
   <p>Return: <%= booking.end_date.day %> <%= Date::ABBR_MONTHNAMES[booking.end_date.month] %>, <%= booking.end_date.year %></p>
