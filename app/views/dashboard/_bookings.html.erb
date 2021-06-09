@@ -1,3 +1,9 @@
+
+
 <% @bookings.each do |booking| %>
-  <%= render 'components/booking_card', booking: booking %>
+  <% @this_pet = @pets.detect { |pet| pet.id == booking[0].pet_id } %>
+  <h2><%= @this_pet.name %></h2>
+  <% booking.each do |this_booking| %>
+    <%= render 'components/booking_card', booking: this_booking %>
+  <% end %>
 <% end %>
