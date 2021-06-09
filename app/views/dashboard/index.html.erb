@@ -1,0 +1,14 @@
+<h1>Dashboard</h1>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="pets-tab" data-toggle="tab" href="#pets" role="tab" aria-controls="pets" aria-selected="true">My Pets</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="bookings-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="bookings" aria-selected="false">Pet Bookings</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane show active" id="pets" role="tabpanel" aria-labelledby="pets-tab"><%= render 'pets' %></div>
+  <div class="tab-pane" id="bookings" role="tabpanel" aria-labelledby="bookings-tab"><%= render 'bookings' %></div>
+</div>
