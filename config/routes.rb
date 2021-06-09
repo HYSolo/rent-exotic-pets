@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'dashboard', to: 'dashboard#index'
+  get 'dashboard/pets'
+  get 'dashboard/bookings'
   resources :pets do
     resources :bookings, only: [:new, :create]
   end
