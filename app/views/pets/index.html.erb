@@ -1,4 +1,4 @@
 <h1>Pets</h1>
-<% @pets.each do |pet| %>
+<% @pets.reverse.each do |pet| %>
   <%= render "components/pet_card", pet: pet %>
 <% end %>
