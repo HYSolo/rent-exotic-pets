@@ -8,11 +8,11 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= cl_image_tag pet.photos.first.key, class: "d-block w-100" %>
+        <%= cl_image_tag pet.photos.first.key %>
       </div>
       <% pet.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
-          <%= cl_image_tag photo.key, class: "d-block w-100" %>
+          <%= cl_image_tag photo.key %>
         </div>
       <% end %>
     </div>
