@@ -1,4 +1,4 @@
-<div class="w-50">
+
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -8,11 +8,11 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= cl_image_tag pet.photos.first.key, height: 200, class: "d-block w-100" %>
+        <%= cl_image_tag pet.photos.first.key %>
       </div>
       <% pet.photos.drop(1).each do |photo| %>
         <div class="carousel-item">
-          <%= cl_image_tag photo.key, height: 200, class: "d-block w-100" %>
+          <%= cl_image_tag photo.key %>
         </div>
       <% end %>
     </div>
@@ -25,4 +25,4 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
+
