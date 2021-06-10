@@ -9,17 +9,7 @@
 
   <div class="mt-1 mb-3 border-top border-dark"></div>
 
-  <div class="photos mx-auto mb-3 p-5 bg-white">
-    <% if @pet.photos.attached? %>
-      <%= render "components/carousel", pet: @pet %>
-    <% else %>
-      <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1940&q=80" alt="" class="d-block w-50", style="height: 200px;">
-    <% end %>
-  </div>
-
-  <h2>Details</h2>
-
-  <div class="d-flex justify-content-around align-items-center shadow">
+  <div class="d-flex justify-content-around align-items-center shadow my-3">
     <div class="text-center mt-3">
       <i class="fas fa-paw"></i>
       <p><%= @pet.species %></p>
@@ -33,7 +23,18 @@
       <p><%= @pet.address %></p>
     </div>
   </div>
-  <div class="w-50" style="height: 400px;">
-    <%= render "components/map", markers: @markers %>
+
+  <div class="d-flex justify-content-between">
+    <div class="photos mb-3 w-50">
+      <% if @pet.photos.attached? %>
+        <%= render "components/carousel", pet: @pet %>
+      <% else %>
+        <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1940&q=80" alt="" class="d-block w-50", style="height: 200px;">
+      <% end %>
+    </div>
+    <div class="ml-1 border border-dark" style="height: 400px; width: 45%;">
+      <%= render "components/map", markers: @markers %>
+    </div>
   </div>
+
 </div>
