@@ -2,3 +2,5 @@
 <% @pets.reverse.each do |pet| %>
   <%= render "components/pet_card", pet: pet %>
 <% end %>
+
+<%= render "components/map", markers: @markers %>

@@ -24,9 +24,9 @@ end
   species = ['Alligator', "Tiger", "Lion", "Cheetah", "Bear"].sample
   danger_meter = rand(1..5)
   price = rand(100..1000)
-  location = Faker::Address.city
+  address = Faker::Address.city
   user = User.all.sample
-  pet = Pet.create!(name: name, description: description, species: species, danger_meter: danger_meter, price: price, location: location, user: user)
+  pet = Pet.create!(name: name, description: description, species: species, danger_meter: danger_meter, price: price, address: address, user: user)
 end
 
 #Creating 20 pets that *do* have bookings
@@ -36,9 +36,9 @@ end
   species = ['Alligator', "Tiger", "Lion", "Cheetah", "Bear"].sample
   danger_meter = rand(1..5)
   price = rand(100..1000)
-  location = Faker::Address.city
+  address = Faker::Address.city
   user = User.all.sample
-  pet = Pet.create!(name: name, description: description, species: species, danger_meter: danger_meter, price: price, location: location, user: user)
+  pet = Pet.create!(name: name, description: description, species: species, danger_meter: danger_meter, price: price, address: address, user: user)
   
   start_date = Faker::Date.in_date_period(year: 2021, month: 6)
   weeks = rand(1..10)
