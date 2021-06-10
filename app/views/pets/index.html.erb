@@ -3,20 +3,16 @@
 <%= render '/components/search' %>
 
 <div class="cards">
-
-
-  <% if @query.empty? %>
-    <% @pets.reverse.each do |pet| %>
-      <%= render "components/pet_card", pet: pet %>
-      <% raise %>
-    <% end %>
-  <% elsif @pets.empty? %>
-    <h2>EMPTY RESULT</h2>
-  <% else %>
+  <% if @pets.empty? %>
+    <h2> 🦁 No Results 🐻 </h2>
+  <% elsif params[:query].present? %>
     <% @pets.each do |pet| %>
       <%= render "components/pet_card", pet: pet.searchable %>
     <% end %>
+  <% elsif params[:query].nil? %>
+    <% @pets.each do |pet| %>
+      <%= render "components/pet_card", pet: pet %>
+    <% end %>
   <% end %>
-
 </div>
 

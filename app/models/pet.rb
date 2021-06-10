@@ -10,15 +10,16 @@ class Pet < ApplicationRecord
   multisearchable against: %i[species name location]
 
   # single search -- seems like options only work with single search
-  pg_search_scope :global_search, against: {
-    species: 'A',
-    location: 'B',
-    name: 'C'
-  },
+  pg_search_scope :global_search,
+    against: {
+      species: 'A',
+      location: 'B',
+      name: 'C'
+    },
     associated_against: {
       user: %i[name location]
     },
     using: {
       tsearch: { prefix: true }
-  }
+    }
 end
