@@ -1,6 +1,15 @@
 <h1>Pets</h1>
-<% @pets.reverse.each do |pet| %>
-  <%= render "components/pet_card", pet: pet %>
-<% end %>
+
+<%= render '/components/search' %>
+
+<div class="cards">
+  <% if @pets.empty? %>
+    <h2> 🦁 No Results 🐻 </h2>
+  <% else %>
+    <% @pets.each do |pet| %>
+      <%= render "components/pet_card", pet: pet %>
+    <% end %>
+  <% end %>
+</div>
 
 <%= render "components/map", markers: @markers %>

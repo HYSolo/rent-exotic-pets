@@ -3,8 +3,12 @@ class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @pets = Pet.all
-
+    if params[:query].present?
+      @pets = Pet.global_search(params[:query])
+    else
+      @pets = Pet.all
+    end
+    
     # the `geocoded` scope filters only pets with coordinates (latitude & longitude)
     @markers = @pets.geocoded.map do |pet|
       {

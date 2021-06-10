@@ -1,0 +1,11 @@
+<%= form_tag pets_path, method: :get do %>
+  <div class="search-form-control form-group">
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search for a pet",
+      value: params[:query]
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
+  </div>
+<% end %>
