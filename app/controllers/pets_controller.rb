@@ -3,7 +3,8 @@ class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @pets = Pet.all
+    @query = params[:search][:query]
+    @pets = @query.empty? ? Pet.all : PgSearch.multisearch(@query)
   end
 
   def new

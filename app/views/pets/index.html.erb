@@ -1,4 +1,22 @@
 <h1>Pets</h1>
-<% @pets.reverse.each do |pet| %>
-  <%= render "components/pet_card", pet: pet %>
-<% end %>
+
+<%= render '/components/search' %>
+
+<div class="cards">
+
+
+  <% if @query.empty? %>
+    <% @pets.reverse.each do |pet| %>
+      <%= render "components/pet_card", pet: pet %>
+      <% raise %>
+    <% end %>
+  <% elsif @pets.empty? %>
+    <h2>EMPTY RESULT</h2>
+  <% else %>
+    <% @pets.each do |pet| %>
+      <%= render "components/pet_card", pet: pet.searchable %>
+    <% end %>
+  <% end %>
+
+</div>
+
