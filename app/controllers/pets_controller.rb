@@ -25,6 +25,14 @@ class PetsController < ApplicationController
   end
 
   def show
+    @markers = @pet.geocode.map do
+      {
+        lat: @pet.latitude,
+        lng: @pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: @pet }),
+        marker_html: render_to_string(partial: "map_marker", locals: { pet: @pet })
+      }
+    end
   end
 
   def create
