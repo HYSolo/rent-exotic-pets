@@ -5,14 +5,9 @@
 <div class="cards">
   <% if @pets.empty? %>
     <h2> 🦁 No Results 🐻 </h2>
-  <% elsif params[:query].present? %>
-    <% @pets.each do |pet| %>
-      <%= render "components/pet_card", pet: pet.searchable %>
-    <% end %>
-  <% elsif params[:query].nil? %>
+  <% else %>
     <% @pets.each do |pet| %>
       <%= render "components/pet_card", pet: pet %>
     <% end %>
   <% end %>
 </div>
-

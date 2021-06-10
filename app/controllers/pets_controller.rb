@@ -4,7 +4,7 @@ class PetsController < ApplicationController
 
   def index
     if params[:query].present?
-      @pets = PgSearch.multisearch(params[:query])
+      @pets = Pet.global_search(params[:query])
     else
       @pets = Pet.all
     end

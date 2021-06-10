@@ -6,10 +6,6 @@ class Pet < ApplicationRecord
   has_many_attached :photos
 
   include PgSearch::Model
-  # multisearch
-  multisearchable against: %i[species name location]
-
-  # single search -- seems like options only work with single search
   pg_search_scope :global_search,
     against: {
       species: 'A',
