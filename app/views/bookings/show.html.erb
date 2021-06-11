@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <% if @booking.user == current_user %>
+  <% if @booking.user == current_user || @booking.pet.user %>
     <%= render 'components/booking_details', booking: @booking %>
   <% else %>
     <h1>YOU CAN'T SEE THIS!</h1>
