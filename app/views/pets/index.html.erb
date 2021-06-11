@@ -1,17 +1,17 @@
 <h1>Pets</h1>
 
 <%= render '/components/search' %>
-
-<div class="cards">
-  <% if @pets.empty? %>
-    <h2> 🦁 No Results 🐻 </h2>
-  <% else %>
-    <% @pets.each do |pet| %>
-      <%= render "components/pet_card", pet: pet %>
+<div class="content">
+  <div class="cards">
+    <% if @pets.empty? %>
+      <h2> 🦁 No Results 🐻 </h2>
+    <% else %>
+      <% @pets.each do |pet| %>
+        <%= render "components/pet_card", pet: pet %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-
-<div class="w-100" style="height: 400px;">
-  <%= render "components/map", markers: @markers %>
+  </div>
+  <div class="map-container">
+    <%= render "components/map", markers: @markers %>
+  </div>
 </div>
