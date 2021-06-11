@@ -18,7 +18,9 @@
       <%= f.input :price %>
       <%= f.input :address, id: "pet_address" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit "Submit", class: "btn btn-primary"%>
+      <div class="col-12">
+        <%= f.submit "Submit", class: "btn btn-primary"%>
+      </div>
     <% end %>
   </div>
 </div>
