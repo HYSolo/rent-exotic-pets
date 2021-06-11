@@ -10,16 +10,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "See all Pets", pets_path, class: "nav-link" %>
+        <%= link_to "Browse all Pets", pets_path, class: "nav-link" %>
       </li>
       <% if user_signed_in? %>
       <%# TODO: turn this into a partial %>
-      <li class="nav-item">
-        <%= link_to "Add a Pet", new_pet_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "My Pets", dashboard_path, class: "nav-link" %>
-      </li>
+        <% if current_user.pets.empty? %>
+          <li class="nav-item">
+            <%= link_to "Become a Pet Owner", new_pet_path, class: "nav-link" %>
+          </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "My Pets", dashboard_path, class: "nav-link" %>
+        </li>
+        <% end %>
       <li class="nav-item">
         <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
       </li>
