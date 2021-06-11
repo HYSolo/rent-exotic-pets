@@ -1,13 +1,23 @@
-<h1>Your Booking</h1>
 
-<h2>Price</h2>
-<p>$<%= booking.total_price %></p>
+<h1 class="text-center">Your Booking</h1>
 
-<h2>Dates</h2>
-  <p>Pick up: <%= booking.start_date.day %> <%= Date::MONTHNAMES[booking.start_date.month] %>, <%= booking.start_date.year %></p>
-  <p>Return: <%= booking.end_date.day %> <%= Date::ABBR_MONTHNAMES[booking.end_date.month] %>, <%= booking.end_date.year %></p>
-<h2>The Pet</h2>
-  <p><%= render 'components/pet_card', pet: booking.pet %></p>
-<h2>Booked With</h2>
-<p><%= booking.pet.user.name %></p>
-<p><%= booking.pet.user.email %></p>
+<div class="border border-bottom border-dark mb-3"></div>
+
+<div class="d-flex justify-content-between">
+  <div>
+    <div class="mb-3">
+      <h2>Details</h2>
+      <p><strong>From:</strong> <%= booking.start_date.day %> <%= Date::MONTHNAMES[booking.start_date.month] %>, <%= booking.start_date.year %></p>
+      <p><strong>To:</strong> <%= booking.end_date.day %> <%= Date::ABBR_MONTHNAMES[booking.end_date.month] %>, <%= booking.end_date.year %></p>
+      <p><strong>Total Price:</strong><%= number_to_currency(booking.total_price) %></p>
+    </div>
+    <div>
+      <h2>Booked With</h2>
+      <p><%= booking.pet.user.name %></p>
+      <p><%= booking.pet.user.email %></p>
+    </div>
+  </div>
+  <div class="show-pet-card w-50">
+    <%= render 'components/pet_card', pet: booking.pet %>
+  </div>
+</div>

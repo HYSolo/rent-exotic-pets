@@ -1,3 +1,14 @@
+.bookings {
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.card-product:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
 .card-product {
   overflow: hidden;
   height: 120px;

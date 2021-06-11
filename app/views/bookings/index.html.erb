@@ -1,5 +1,9 @@
-<h1>My Bookings</h1>
-
-<% @bookings.each do |booking| %>
-  <%= render 'components/booking_card', booking: booking %>
-<% end %>
+<div class="container mt-3">
+  <h1>My Bookings</h1>
+  <div class="bookings">
+    <% @bookings.sort_by { |booking| booking.start_date }
+    .each do |booking| %>
+      <%= render 'components/booking_card', booking: booking %>
+    <% end %>
+  </div>
+</div>

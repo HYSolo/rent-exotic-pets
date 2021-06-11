@@ -1,10 +1,12 @@
+<%= link_to booking_path(booking) do %>
   <div class="card-product mb-3">
     <img src="https://image.flaticon.com/icons/png/512/3652/3652191.png" />
     <div class="card-product-infos">
-      <h2><%= link_to booking.pet.name, booking_path(booking) %> (<%= booking.pet.species %>)</h2>
+      <h2><%= booking.pet.name %> (<%= booking.pet.species %>)</h2>
       <p class="dates">
         <%= booking.start_date.day %> <%= Date::ABBR_MONTHNAMES[booking.start_date.month] %>, <%= booking.start_date.year %>
           - <%= booking.end_date.day %> <%= Date::ABBR_MONTHNAMES[booking.end_date.month] %>, <%= booking.end_date.year %>
       </p>
     </div>
   </div>
+<% end %>
