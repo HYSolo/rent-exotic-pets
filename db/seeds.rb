@@ -84,13 +84,27 @@ harambe = Pet.create!({
   species: 'Gorilla',
   danger_meter: 5,
   price: 100000,
-  address: 'Cincinatti Zoo, Cincinatti, USA',
+  address: 'Cincinatti, USA',
   user: david_attenborough
 })
 file = URI.open('https://assets.change.org/photos/2/sr/pj/jjsRpJHvJlNlpXa-1600x900-noPad.jpg?1528854713')
 file1 = URI.open('https://assets.change.org/photos/0/cx/wb/bpcxWbWOLWeyIER-1600x900-noPad.jpg?1476841172')
 harambe.photos.attach(io: file, filename: 'harambe.jpg', content_type: 'image/jpg')
 harambe.photos.attach(io: file1, filename: 'harambe1.jpg', content_type: 'image/jpg')
+
+bluey = Pet.create!({
+  name: 'Bluey',
+  description: 'A beautiful blue tongue lizard cruising around your backyard',
+  species: 'lizard',
+  danger_meter: 0,
+  price: 100,
+  address: 'Brisbane, Australia',
+  user: david_attenborough
+})
+file = URI.open('https://waterlifeaquarium.com.au/wp-content/uploads/2018/04/Blue-Tongue-Lizard-Melbourne.jpg')
+file1 = URI.open('http://bransonswildworld.com/wp-content/uploads/2015/03/Blue-Toungue.jpg')
+bluey.photos.attach(io: file, filename: 'bluey.jpg', content_type: 'image/jpg')
+bluey.photos.attach(io: file1, filename: 'bluey1.jpg', content_type: 'image/jpg')
 
 
 # Creating 5 pets that don't have any bookings
