@@ -84,7 +84,7 @@ harambe = Pet.create!({
   species: 'Gorilla',
   danger_meter: 5,
   price: 100000,
-  address: 'Cincinatti, USA',
+  address: 'Cincinatti Zoo, Cincinatti, USA',
   user: david_attenborough
 })
 file = URI.open('https://assets.change.org/photos/2/sr/pj/jjsRpJHvJlNlpXa-1600x900-noPad.jpg?1528854713')

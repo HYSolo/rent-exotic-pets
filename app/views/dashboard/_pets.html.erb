@@ -1,3 +1,5 @@
-<% @pets.each do |pet| %>
-  <%= render "components/pet_card", pet: pet %>
-<% end %>
+<div class="cards w-100">
+  <% @pets.each do |pet| %>
+    <%= render "components/pet_card", pet: pet %>
+  <% end %>
+</div>
