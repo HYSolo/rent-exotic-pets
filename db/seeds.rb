@@ -9,6 +9,32 @@
 User.delete_all
 Pet.delete_all
 
+# Create main users
+joe_exotic = User.new({
+  name: 'Joe Exotic',
+  email: 'joe@exotic.com',
+  location: 'Oklahoma, USA',
+  password: 'secret'
+})
+
+carole_baskin = User.new({
+  name: 'Carole Baskin',
+  email: 'carole@baskin.com',
+  location: 'Florida, USA',
+  password: 'secret'
+})
+
+bindi_irwin = {
+  name: 'Bindi Irwin',
+  email: 'bindi@irwin.com',
+  location: 'Beerwah, Queensland, Australia',
+  password: 'secret'
+}
+
+[joe_exotic, carole_baskin, bindi_irwin].each do |user|
+  User.create!(user)
+end
+
 # Creating 10 users
 10.times do
   name = Faker::Name.name
@@ -39,7 +65,7 @@ end
   address = Faker::Address.city
   user = User.all.sample
   pet = Pet.create!(name: name, description: description, species: species, danger_meter: danger_meter, price: price, address: address, user: user)
-  
+
   start_date = Faker::Date.in_date_period(year: 2021, month: 6)
   weeks = rand(1..10)
   end_date = start_date + (7 * weeks)
