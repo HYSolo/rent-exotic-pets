@@ -38,3 +38,11 @@
   top: -20px;
   width: 40px;
 }
+
+.card-trip a {
+  text-decoration: none;
+}
+
+.card-trip:hover {
+  box-shadow: 0 0 6px rgb(148, 148, 148);
+}
