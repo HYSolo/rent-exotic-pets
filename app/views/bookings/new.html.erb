@@ -1,18 +1,17 @@
-<h1>New booking for <%= @pet.name %> the <%= @pet.species %></h1>
 
 <%# create a form to get the start/end date of the booking %>
 <%# where is this form going to be directed to? %>
 <%# form will be directed to a 'create' action (it will be a nested route) %>
 <%# the form will be nested, pet_id to create booking %>
 
-<div class="w-25">
-  <%= simple_form_for [@pet, @booking] do |f| %>
-    <%= f.input :start_date, as: :date, html5: true %>
-    <%= f.input :end_date, as: :date, html5: true, input_html:{ data: { price: @pet.price }} %>
-    <%= f.submit "Submit", class: "btn btn-primary"%>
-  <% end %>
-
-  <%# use moment.js to calculate dates %>
-  <%# store price as a hidden input and pass in params %>
+<div class="container mt-5">
+  <h1 class="text-center mb-3">New booking for <%= @pet.name %> the <%= @pet.species %></h1>
+  <div class="w-25 mx-auto bg-white border border-dark rounded p-3" data-controller="price">
+    <%= simple_form_for [@pet, @booking], remote: true do |f| %>
+      <%= f.input :start_date, as: :date, html5: true %>
+      <%= f.input :end_date, as: :date, html5: true %>
+      <%= f.submit "Submit", class: "btn btn-primary", data: { confirm: "Would you like to confirm this booking?" } %>
+    <% end %>
+  </div>
 </div>
 
