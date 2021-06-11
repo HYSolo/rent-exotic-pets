@@ -1,14 +1,26 @@
-<h1>Add a new Pet!</h1>
-
-<div>
-  <%= simple_form_for @pet do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :species %>
-    <%= f.input :danger_meter, collection: 0..5 %>
-    <%= f.input :price %>
-    <%= f.input :address, id: "pet_address" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Submit", class: "btn btn-primary"%>
+<div class="container mt-3">
+  
+  <% if current_user.pets.empty? %>
+    <div class="text-center">
+      <h1>Get Started</h1>
+      <h4>Add your first pet and start making money!</h4>
+    </div>
+  <% else %>
+    <h1 class="text-center">Offer a New Pet</h1>
   <% end %>
+  
+  <div class="bg-light border border-dark rounded p-3">
+    <%= simple_form_for @pet do |f| %>
+      <%= f.input :name %>
+      <%= f.input :species %>
+      <%= f.input :description, as: :text, :input_html => { :rows => 4 } %>
+      <%= f.input :danger_meter, collection: 0..5 %>
+      <%= f.input :price %>
+      <%= f.input :address, id: "pet_address" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit "Submit", class: "btn btn-primary"%>
+    <% end %>
+  </div>
 </div>
+
+
